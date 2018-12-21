@@ -53,7 +53,7 @@ export default class Dashboard extends Component {
       <div>
         <div>
           <h2>Dashboard</h2>
-          <Link to='/wizard' component={routes}><button>Add New Property</button></Link>
+          <Link to='/wizard/step1' component={routes}><button>Add New Property</button></Link>
         </div>
         <h4>Home Listings</h4>
         {mapHousesList}
