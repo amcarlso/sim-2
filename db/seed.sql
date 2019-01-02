@@ -4,7 +4,10 @@ CREATE TABLE houses(
     address varchar(100),
     city varchar(100),
     state varchar(2),
-    zip integer
+    zip integer,
+    img text,
+    mortgage DECIMAL,
+    rent DECIMAL
 );
 
 

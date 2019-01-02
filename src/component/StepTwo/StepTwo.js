@@ -2,35 +2,25 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import routes from '../../routes'
+import {updateImg} from '../../ducks/reducer'
 
 
-export default class StepOne extends Component {
+
+class StepTwo extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       img: ''
     }
-
-    this.handleImgChange = this.handleImgChange.bind(this)
-    
-
   }
-
-  handleImgChange(input) {
-    console.log(input)
-    this.setState({
-      img: input
-    })
-  }
-  
-
   
 
   render(){
+    console.log(this.props)
     return(
       <div>
-        <input placeholder='add URL here' onChange={(e) => this.handleImgChange(e.target.value)}/>
+        <input placeholder='add URL here' onChange={(e) => this.props.updateImg(e.target.value)}/>
         <Link to='/' component={routes}><button>Cancel</button></Link>
         <Link to='/wizard/step1' component={routes}><button>Previous Step</button></Link>
         <Link to='/wizard/step3' component={routes}><button>Next Step</button></Link>
@@ -39,3 +29,14 @@ export default class StepOne extends Component {
     )
   }
 }
+
+const outputActions = {
+  updateImg
+}
+
+function mapStateToProps( reduxState ){
+  const {img} = reduxState;
+  return { img }
+}
+
+export default connect(mapStateToProps, outputActions)(StepTwo);

@@ -2,7 +2,12 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import routes from '../../routes';
-import {updateStepOne} from '../../ducks/reducer'
+import {updateName} from '../../ducks/reducer'
+import {updateAddress} from '../../ducks/reducer'
+import {updateCity} from '../../ducks/reducer'
+import {updateState} from '../../ducks/reducer'
+import {updateZip} from '../../ducks/reducer'
+
 
 
 
@@ -16,45 +21,8 @@ class StepOne extends Component {
       city: '',
       state: '',
       zip: ''
-    }
-
-    this.handleAddressChange = this.handleAddressChange.bind(this)
-    this.handleNameChange = this.handleNameChange.bind(this)
-    this.handleCityChange = this.handleCityChange.bind(this)
-    this.handleStateChange = this.handleStateChange.bind(this)
-    this.handleZipcodeChange = this.handleZipcodeChange.bind(this)
+    } 
     
-  }
-
-  handleNameChange(input) {
-    console.log(input)
-    this.setState({
-      name: input
-    })
-  }
-  handleAddressChange(input) {
-    console.log(input)
-    this.setState({
-      address: input
-    })
-  }
-  handleCityChange(input) {
-    console.log(input)
-    this.setState({
-      city: input
-    })
-  }
-  handleStateChange(input) {
-    console.log(input)
-    this.setState({
-      state: input
-    })
-  }
-  handleZipcodeChange(input) {
-    console.log(input)
-    this.setState({
-      zip: input
-    })
   }
 
 
@@ -64,21 +32,28 @@ class StepOne extends Component {
       <div>
         <h3>Add New Listing</h3>
         <Link to='/' component={routes}><button>Cancel</button></Link>
-        <input placeholder='name' onChange={(e) => this.handleNameChange(e.target.value)}/>
-        <input placeholder='address' onChange={(e) => this.handleAddressChange(e.target.value)}/>
-        <input placeholder='city' onChange={(e) => this.handleCityChange(e.target.value)}/>
-        <input placeholder='state' onChange={(e) => this.handleStateChange(e.target.value)}/>
-        <input placeholder='zipcode' onChange={(e) => this.handleZipcodeChange(e.target.value)}/>
-        <Link to='/wizard/step2' component={routes}><button onClick={() => updateStepOne() }>Next Step</button></Link>
+        <input placeholder='name' onChange={(e) => this.props.updateName(e.target.value)}/>
+        <input placeholder='address' onChange={(e) => this.props.updateAddress(e.target.value)}/>
+        <input placeholder='city' onChange={(e) => this.props.updateCity(e.target.value)}/>
+        <input placeholder='state' onChange={(e) => this.props.updateState(e.target.value)}/>
+        <input placeholder='zipcode' onChange={(e) => this.props.updateZip(e.target.value)}/>
+        <Link to='/wizard/step2' component={routes}><button>Next Step</button></Link>
       </div>
       
     )
   }
 }
+const outputActions = {
+  updateName,
+  updateAddress,
+  updateCity,
+  updateState,
+  updateZip
+}
 
-function mapStateToProps( ReduxState ){
-  const {name, address, city, state, zip} = ReduxState;
+function mapStateToProps( reduxState ){
+  const {name, address, city, state, zip} = reduxState;
   return { name, address, city, state, zip }
 }
 
-export default connect(mapStateToProps, {updateStepOne})(StepOne);
+export default connect(mapStateToProps, outputActions)(StepOne);

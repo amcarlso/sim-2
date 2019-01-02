@@ -3,8 +3,10 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import routes from '../../routes'
+import {updateMortgage} from '../../ducks/reducer'
+import {updateRent} from '../../ducks/reducer'
 
-export default class StepOne extends Component {
+class StepThree extends Component {
   constructor(props) {
     super(props)
 
@@ -12,47 +14,40 @@ export default class StepOne extends Component {
       mortgage: '',
       rent: ''
     }
-
-    
-    this.handleMortgageChange = this.handleMortgageChange.bind(this)
-    this.handleRentChange = this.handleRentChange.bind(this)
-
-  }
-
-  
-  handleMortgageChange(input) {
-    console.log(input)
-    this.setState({
-      state: input
-    })
-  }
-  handleRentChange(input) {
-    console.log(input)
-    this.setState({
-      zip: input
-    })
-  }
+  }  
 
   handleAddHouse = () => {
-    const {name, address, city, state, zip} = this.state;
-    axios.post('/api/house', {name, address, city, state, zip})
+    const {name, address, city, state, zip, img, mortgage, rent} = this.props
+    console.log(this.props)
+    axios.post('/api/house', {name, address, city, state, zip, img, mortgage, rent})
     .then( res => {
-      this.setState({
-        houses: res.data
-      })
+      this.props.history.push('/') //<---- use istae
     })
   }
 
   render(){
+    console.log(this.props)
     return(
       <div>
+        <input placeholder='mortgage amount' onChange={(e) => this.props.updateMortgage(e.target.value)}/>
+        <input placeholder='rent amount' onChange={(e) => this.props.updateRent(e.target.value)}/>
         <Link to='/' component={routes}><button>Cancel</button></Link>
-        <input placeholder='mortgage amount' onChange={(e) => this.handleMortgageChange(e.target.value)}/>
-        <input placeholder='rent amount' onChange={(e) => this.handleRentChange(e.target.value)}/>
         <Link to='/wizard/step2' component={routes}><button>Previous Step</button></Link>
-        <Link to='/' component={routes}><button onClick={() => this.handleAddHouse()}>Complete</button></Link>
+        <button onClick={() => this.handleAddHouse()}>Complete</button>
       </div>
       
     )
   }
 }
+
+const outputActions = {
+  updateMortgage,
+  updateRent
+}
+
+function mapStateToProps( ReduxState ){
+  const {name, address, city, state, zip, img, mortgage, rent} = ReduxState;
+  return { name, address, city, state, zip, img, mortgage, rent }
+}
+
+export default connect(mapStateToProps, outputActions)(StepThree);

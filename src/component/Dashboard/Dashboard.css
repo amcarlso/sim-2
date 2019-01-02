@@ -1,0 +1,32 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.dashboard-background {
+  background-color: #AFD4C0;
+  height: 100%;
+}
+
+.display-area {
+  height: 100%;
+  width: 55vw;
+  background-color: #E5F4EC;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5px 15px 5px;
+}
+
+#add-prop-button {
+  border: none;
+  background-color: 8AEA92;
+}
+
+#title-style {
+  color: #3B5249;
+  font-size: 2.3em;
+}

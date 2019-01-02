@@ -3,6 +3,7 @@ import House from '../House/House'
 import {Link} from 'react-router-dom';
 import routes from '../../routes'
 import axios from 'axios';
+import './Dashboard.css';
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -50,14 +51,20 @@ export default class Dashboard extends Component {
       )
     })
     return (
-      <div>
-        <div>
-          <h2>Dashboard</h2>
-          <Link to='/wizard/step1' component={routes}><button>Add New Property</button></Link>
-        </div>
-        <h4>Home Listings</h4>
-        {mapHousesList}
+      <div className='dashboard-background'>
+        <div className='display-area'>
+          <div className='dashboard-header'>
+            <h2 id='title-style'>Dashboard</h2>
+            <Link to='/wizard/step1' component={routes}><button id='add-prop-button'>Add New Property</button></Link>
+          </div>
+          <hr />
+          <h4>Home Listings</h4>
+          <div>
+            {mapHousesList}
+          </div>
       </div>
+        </div>
+        
     )
   }
 }
