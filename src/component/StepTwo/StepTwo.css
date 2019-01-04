@@ -1,0 +1,91 @@
+#steptwo-background {
+  background-color: #AFD4C0;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+}
+
+.display-area {
+  width: 60vw;
+  background-color: #E5F4EC;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#steptwo-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5px 15px 5px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-listing {
+  font-weight: 750;
+  font-size: 1.5em;
+}
+
+#image-url-title {
+  margin-left: 8vw;
+}
+
+#url-input {
+  width: 42vw;
+}
+
+#image-url-input-spacing {
+  display: flex;
+  justify-content: center;
+}
+
+.cancel-button {
+  background-color: #FEC2C2;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+.next-button {
+  background-color: #3B5249;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.2em;
+  margin-right: 5px;
+  color: white;
+}
+
+.previous-button {
+  background-color: #3B5249;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.2em;
+  margin-right: 5px;
+  color: white;
+}
+
+.bottom-buttons-spacing {
+  position: relative;
+  top: 0%;
+}
+
+.entry-style {
+  padding: 80px;
+}
+
+p {
+  padding: 2px 12px;
+  font-weight: 700;
+}
+
+input {
+  border: 1.2px solid rgb(5, 95, 5);
+  border-radius: 3px;
+  height: 22px;
+  margin: 2px 15px 20px 0;
+  
+}
+
+#flex-inputs {
+  display: flex;
+}

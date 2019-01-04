@@ -1,5 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
 .header-style {
   background-color: #519872;
-  height: 10vh;
-  padding: 2.5vh 0 0 22vw;
+  height: 12vh;
+  width: 100vw;
+  max-width: 100%;
 }
+
+.link-box {
+  height: 100%;
+  width: 60vw;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.logo-style {
+  position: relative;
+  top: 3vh;
+  left: 2vw;
+}
+
+.links {
+  position: relative;
+  top: 3vh;
+  left: 23vw;
+  text-decoration: none;
+  color: white;
+  /* padding: 5px 15px; */
+  padding: 1vh 3vw;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+
+
+

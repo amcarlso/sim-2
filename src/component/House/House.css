@@ -1,0 +1,31 @@
+
+.listing-style {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 5px;
+  background-color: #DEDEDE;
+  padding: 10px;
+}
+
+p {
+  padding: 3px;
+}
+
+#delete-style {
+  height: 23px;
+  color: gray;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+}
+
+#delete-style:hover {
+  color: #AFD4C0;
+  background-color: #3B5249;
+}
+
+#delete-style:active {
+  color: white;
+}
+
+

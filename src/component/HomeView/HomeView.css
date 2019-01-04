@@ -1,18 +1,15 @@
-body {
+/* body {
   font-family: 'Open Sans', sans-serif;
 }
 
 .dashboard-background {
   background-color: #AFD4C0;
   height: 100%;
-  width: 100vw;
-  max-width: 100%;
-  /* padding-top: 12vh; */
 }
 
 .display-area {
   height: 100%;
-  width: 60%;
+  width: 60vw;
   background-color: #E5F4EC;
   margin: 0 auto;
   padding: 20px;
@@ -52,5 +49,4 @@ body {
   padding: 12px 18px;
   font-size: 1.3em;
   font-weight: bolder;
-  letter-spacing: 1px;
-}
+} */

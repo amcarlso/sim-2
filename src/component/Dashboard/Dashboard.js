@@ -46,6 +46,9 @@ export default class Dashboard extends Component {
           city={house.city}
           state={house.state}
           zip={house.zip}
+          img={house.img}
+          mortgage={house.mortgage}
+          rent={house.rent}
           deleteHouseFn={this.deleteHouse}
       />
       )
@@ -58,12 +61,12 @@ export default class Dashboard extends Component {
             <Link to='/wizard/step1' component={routes}><button id='add-prop-button'>Add New Property</button></Link>
           </div>
           <hr />
-          <h4>Home Listings</h4>
+          <h2 id='listing-title-style'>Home Listings</h2>
           <div>
             {mapHousesList}
           </div>
-      </div>
         </div>
+      </div>
         
     )
   }
